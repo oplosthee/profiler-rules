@@ -61,29 +61,3 @@ rule Covenant_Rubeus
 	condition:
 		all of them
 }
-
-rule Covenant_SharpSploit_PELoad
-{ 
-	meta:
-		description = "Detects a PE being loaded in memory using SharpSploit (https://github.com/cobbr/SharpSploit/blob/52ad861d98d75bb0a7f6cd9d421dc8a8463adc08/SharpSploit/Execution/PE.cs#L190)."
-	
-	strings:
-		$start = "System.Runtime.InteropServices.Marshal.PtrToStructure"
-		$s1 = "System.Runtime.InteropServices.Marshal.SizeOf"
-		$s2 = "System.Runtime.InteropServices.Marshal.ReadInt16"
-		
-		// 64-bit PEs:
-		$x3 = "System.Runtime.InteropServices.Marshal.WriteInt64"
-		$x4 = "System.Runtime.InteropServices.Marshal.ReadInt64"
-		// 32-bit PEs:	
-		$y3 = "System.Runtime.InteropServices.Marshal.WriteInt32" 
-		$y4 = "System.Runtime.InteropServices.Marshal.ReadInt32"
-		
-		$s5 = "System.Runtime.InteropServices.Marshal.ReadInt32"
-		$s6 = "System.Runtime.InteropServices.Marshal.PtrToStringAnsi"
-		$s7 = "System.StubHelpers.CSTRMarshaler.ConvertToNative"
-		$s8 = "System.Runtime.InteropServices.Marshal.GetDelegateForFunctionPointer"
-	
-	condition:
-		all of ($s*) and ((all of ($x*)) or (all of ($y*)))
-}
