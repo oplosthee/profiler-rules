@@ -167,7 +167,7 @@ rule SharpSploit_AssemblyExecute_Parameters
 					all of ($xb*) // Plural methods
 				)
 				and
-				$x4 // The in combination with singular OR plural methods
+				$x4 // The invoke in combination with singular OR plural methods
 			)
 			or
 			all of ($y*) // New thread creation after Load
