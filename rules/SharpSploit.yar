@@ -1,4 +1,4 @@
-master// ShellCode.cs
+// ShellCode.cs
 rule SharpSploit_ShellCode
 { 
 	meta:
