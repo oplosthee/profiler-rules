@@ -1,4 +1,4 @@
-// ShellCode.cs
+master// ShellCode.cs
 rule SharpSploit_ShellCode
 { 
 	meta:
@@ -190,7 +190,7 @@ rule SharpSploit_AssemblyExecute_Parameters
 rule SharpSploit_AllocatePayload
 {
     meta:
-        description = "Detects a payload being allocated in a process by SharpSploit (https://github.com/cobbr/SharpSploit/blob/master/SharpSploit/Execution/Injection/Allocation.cs#L163)"
+        description = "Detects a payload being allocated in a process by SharpSploit (https://github.com/cobbr/SharpSploit/blob/c1a4943505ab59ae3ce9857c8182bb186ecff502/SharpSploit/Execution/Injection/Allocation.cs#L163)"
 
     strings:
         $start = "System.Diagnostics.Process.GetCurrentProcess"
@@ -208,7 +208,7 @@ rule SharpSploit_AllocatePayload
 rule SharpSploit_Reflection_MethodInvoke
 {
     meta:
-        description = "Detects a method being executed using reflection (https://github.com/cobbr/SharpSploit/blob/master/SharpSploit/Execution/Injection/Execution.cs#L66)"
+        description = "Detects a method being executed using reflection (https://github.com/cobbr/SharpSploit/blob/c1a4943505ab59ae3ce9857c8182bb186ecff502/SharpSploit/Execution/Injection/Execution.cs#L66)"
 
     strings:
         $start = "System.Type.GetMethod"
