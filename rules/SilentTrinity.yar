@@ -23,3 +23,17 @@ rule SilentTrinity_BooRuntime
 	condition:
 		all of them
 }
+
+rule SilentTrinity_DLR
+{
+	meta:
+		description = "Detects the presence of the Dynamic Language Runtime."
+
+	strings:
+		// This rule is very broad, but this namespace is present in executables utilising the DLR ..
+		// .. in the same way SILENTTRINITY does.
+		$start = "Microsoft.Scripting"
+
+	condition:
+		all of them
+}
