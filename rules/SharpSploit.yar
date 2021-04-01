@@ -190,7 +190,7 @@ rule SharpSploit_AssemblyExecute_Parameters
 rule SharpSploit_AllocatePayload
 {
     meta:
-        description = "Detects a payload being allocated in a process by SharpSploit (https://github.com/cobbr/SharpSploit/blob/c1a4943505ab59ae3ce9857c8182bb186ecff502/SharpSploit/Execution/Injection/Allocation.cs#L163)"https://github.com/cobbr/Covenant/blob/5b90f203c2e42c0f0e5607653c71f6fc452adaab/Covenant/Data/Grunt/GruntBridge/GruntBridge.cs#L255
+        description = "Detects a payload being allocated in a process by SharpSploit (https://github.com/cobbr/SharpSploit/blob/c1a4943505ab59ae3ce9857c8182bb186ecff502/SharpSploit/Execution/Injection/Allocation.cs#L163)"
 
     strings:
         $start = "System.Diagnostics.Process.GetCurrentProcess"
